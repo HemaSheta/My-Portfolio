@@ -1,465 +1,387 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Ibrahim Sheta - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibrahim Sheta | Web Developer</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.globe.min.js"></script>
     <style>
-        :root {
-            --accent: #4fd1c5;
-            --accent-dark: #38b2ac;
-            --bg: #1a1a2e;
-            --card-bg: #252547;
-            --footer-bg: #131324;
-            --text: #f5f5f5;
+        .hero-bg {
+            background: linear-gradient(135deg, #1e3a8a 0%, #0ea5e9 100%);
         }
-
-        * {
-            box-sizing: border-box;
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: var(--bg);
-            color: var(--text);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            line-height: 1.5;
-            scroll-behavior: smooth;
+        .skill-icon {
+            transition: all 0.3s ease;
         }
-
-        /* Header (Landing Section) */
-        header {
-            background: linear-gradient(135deg,#020617,#1e293b);
-            color: #fff;
-            text-align: center;
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            padding: 0 1.5rem;
-        }
-
-            header h1 {
-                margin: 0;
-                font-size: 4.6rem;
-                font-weight: 800;
-            }
-
-            header h2 {
-                margin: 1rem 0;
-                font-size: 1.7rem;
-                color: var(--accent);
-                font-weight: 600;
-            }
-
-            header p {
-                max-width: 780px;
-                margin: 1rem auto 2rem;
-                color: #cbd5e1;
-                font-weight: 300;
-                font-size: 1.2rem;
-            }
-
-        /* Navigation buttons */
-        .nav-buttons {
-            display: flex;
-            justify-content: center;
-            gap: 1.2rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-            .nav-buttons a {
-                background: #000;
-                color: #fff;
-                text-decoration: none;
-                padding: 0.75rem 1.8rem;
-                border-radius: 999px;
-                font-weight: 600;
-                box-shadow: 0 0 10px rgba(0, 123, 255, 0.8);
-                transition: all 0.25s ease;
-            }
-
-                .nav-buttons a:hover {
-                    background: #111;
-                    box-shadow: 0 0 16px rgba(0, 123, 255, 1);
-                    transform: scale(1.05);
-                }
-
-        /* CV Button */
-        .cv-button {
-            margin-top: 1.8rem;
-        }
-
-            .cv-button a {
-                display: inline-block;
-                background: var(--accent);
-                color: #fff;
-                text-decoration: none;
-                padding: 0.85rem 2rem;
-                border-radius: 999px;
-                font-weight: 700;
-                transition: all 0.25s ease;
-            }
-
-                .cv-button a:hover {
-                    background: var(--accent-dark);
-                    transform: scale(1.08);
-                }
-
-        /* Sections */
-        section {
-            padding: 3.5rem 1.25rem;
-        }
-
-        h2.section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--accent);
-        }
-
-        /* Skills */
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: .8rem;
-        }
-
-        .skill {
-            background: var(--card-bg);
-            color: var(--accent);
-            border: 1px solid var(--accent);
-            padding: .55rem 1.2rem;
-            border-radius: 20px;
-            font-weight: 600;
-            transition: transform .15s;
-        }
-
-            .skill:hover {
-                transform: scale(1.05);
-            }
-
-        .skills-section {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .skills-group {
-            flex: 1;
-            min-width: 250px;
-            text-align: center;
-        }
-
-            .skills-group h3 {
-                font-size: 1.3rem;
-                color: var(--accent);
-                margin-bottom: 1rem;
-            }
-
-        /* Carousel */
-        .carousel-wrapper {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2.25rem;
-            position: relative;
-        }
-
-        .carousel-viewport {
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .carousel {
-            display: flex;
-            transition: transform .5s ease;
-        }
-
-        .slide {
-            flex: 0 0 100%;
-            display: flex;
-            justify-content: center;
-            padding: 1.6rem 0;
-        }
-
-        .card {
-            width: 90%;
-            max-width: 1100px;
-            background: var(--card-bg);
-            padding: 1.6rem 1.6rem 1.8rem;
-            border-radius: 14px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-            text-align: center;
-            color: var(--text);
-        }
-
-            .card img {
-                width: 100%;
-                height: 420px;
-                object-fit: cover;
-                border-radius: 10px;
-                margin-bottom: 1rem;
-                cursor: pointer;
-            }
-
-            .card h3 {
-                margin: .4rem 0 .25rem;
-                font-size: 1.5rem;
-                color: var(--accent);
-            }
-
-            .card p {
-                margin: .35rem 0;
-                color: #cbd5e1;
-            }
-
-        /* Arrows */
-        .arrow {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 52px;
-            height: 52px;
-            border-radius: 999px;
-            border: none;
-            background: var(--accent);
-            color: #fff;
-            font-size: 1.6rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 8px 18px rgba(0,0,0,0.4);
-            z-index: 20;
-            transition: background .12s, transform .08s;
-        }
-
-            .arrow:hover {
-                background: var(--accent-dark);
-                transform: translateY(-50%) scale(1.04);
-            }
-
-            .arrow.left {
-                left: 12px;
-            }
-
-            .arrow.right {
-                right: 12px;
-            }
-
-        /* Footer */
-        footer {
-            background: var(--footer-bg);
-            text-align: center;
-            padding: 1.75rem;
-            margin-top: auto;
-            color: var(--text);
-        }
-
-            footer a {
-                margin: 0 10px;
-                display: inline-block;
-            }
-
-            footer img {
-                width: 34px;
-                height: 34px;
-                vertical-align: middle;
-                transition: transform .12s;
-                filter: invert(100%);
-            }
-
-                footer img:hover {
-                    transform: scale(1.08);
-                }
-
-        /* Contact Form */
-        .contact-form {
-            max-width: 600px;
-            margin: 2rem auto 0;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-            .contact-form input,
-            .contact-form textarea {
-                padding: 0.9rem 1rem;
-                border-radius: 8px;
-                border: none;
-                outline: none;
-                font-size: 1rem;
-                background: #2d2d50;
-                color: var(--text);
-            }
-
-            .contact-form button {
-                background: var(--accent);
-                color: #fff;
-                border: none;
-                padding: 0.9rem;
-                font-size: 1rem;
-                border-radius: 8px;
-                cursor: pointer;
-                font-weight: 600;
-                transition: background 0.25s ease, transform 0.15s ease;
-            }
-
-                .contact-form button:hover {
-                    background: var(--accent-dark);
-                    transform: scale(1.04);
-                }
-
-        /* Responsive */
-        @media (max-width:880px) {
-            header h1 {
-                font-size: 3rem;
-            }
-
-            .card {
-                width: 94%;
-            }
-
-                .card img {
-                    height: 320px;
-                }
-
-            .arrow {
-                width: 44px;
-                height: 44px;
-            }
+        .skill-icon:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body>
-    <!-- Fullscreen Header -->
-    <header>
-        <h1>Ibrahim Sheta</h1>
-        <h2>Full-Stack Developer</h2>
-        <p>Crafting exceptional digital experiences with modern web technologies</p>
-        <div class="nav-buttons">
-            <a href="#about">About Me</a>
-            <a href="#skills">Skills</a>
-            <a href="#projects">Projects</a>
-            <a href="#contact">Contact Me</a>
+<body class="font-sans antialiased text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold text-blue-600">Ibrahim Sheta</span>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-blue-600 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-blue-600 transition">About</a>
+                    <a href="#skills" class="text-gray-700 hover:text-blue-600 transition">Skills</a>
+                    <a href="#projects" class="text-gray-700 hover:text-blue-600 transition">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-blue-600 transition">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="text-gray-700 focus:outline-none">
+                        <i data-feather="menu"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-        <!-- Download CV Button -->
-        <div class="cv-button">
-            <a href="https://drive.google.com/file/d/1OtNkN31g8i6Uz5Q8FbUzcGKgOTp5dLvr/view?usp=sharing" target="_blank">Download CV</a>
-        </div>
-    </header>
+    </nav>
 
-    <!-- About Me Section -->
-    <section id="about">
-        <h2 class="section-title">👨‍💻 About Me</h2>
-        <div style="max-width:900px; margin:0 auto; text-align:center; font-size:1.1rem; color:#cbd5e1; line-height:1.8;">
-            <p>I’m <strong>Ibrahim Sheta</strong>, a passionate full-stack developer with experience in building modern, efficient, and scalable web applications.</p>
-            <p>I enjoy solving problems, learning new technologies, and turning ideas into functional solutions. My focus is on creating user-friendly, high-performance digital experiences.</p>
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg text-white min-h-screen flex items-center pt-16" data-aos="fade">
+        <div id="vanta-globe" class="absolute inset-0 w-full h-full"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-20">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div data-aos="fade-right">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4">Hello, I'm <span class="text-blue-300">Ibrahim Sheta</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Web Developer</h2>
+                    <p class="text-lg mb-8 max-w-lg">Crafting exceptional digital experiences with modern web technologies. I enjoy solving problems, learning new technologies, and turning ideas into functional solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#projects" class="bg-white text-blue-600 px-6 py-3 rounded-lg font-medium hover:bg-blue-50 transition">View My Work</a>
+                        <a href="#contact" class="border-2 border-white text-white px-6 py-3 rounded-lg font-medium hover:bg-white hover:text-blue-600 transition">Contact Me</a>
+                    </div>
+                </div>
+                <div class="flex justify-center" data-aos="fade-left">
+                    <div class="relative">
+                        <div class="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-white shadow-xl">
+                            <img src="https://github.com/HemaSheta/My-Portfolio/blob/main/My%20Photo.jpg?raw=true" alt="Ibrahim Sheta" class="w-full h-full object-cover">
+                        </div>
+                        <div class="absolute -bottom-5 -right-5 bg-blue-500 p-4 rounded-full shadow-lg">
+                            <i data-feather="code" class="w-8 h-8 text-white"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <!-- Skills -->
-    <section id="skills">
-        <h2 class="section-title">🛠 Skills</h2>
-        <div class="skills-section">
-            <div class="skills-group">
-                <h3>Programming Languages</h3>
-                <div class="skills">
-                    <div class="skill">Python</div><div class="skill">JavaScript</div><div class="skill">C#</div><div class="skill">C++</div><div class="skill">HTML</div><div class="skill">CSS</div>
-                </div>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
             </div>
-            <div class="skills-group">
-                <h3>Frameworks & Libraries</h3>
-                <div class="skills">
-                    <div class="skill">.NET MVC</div><div class="skill">.NET API</div><div class="skill">Entity Framework</div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div data-aos="fade-right">
+                    <img src="http://static.photos/workspace/640x360/23" alt="About Ibrahim" class="rounded-lg shadow-xl w-full">
                 </div>
-            </div>
-            <div class="skills-group">
-                <h3>Tools & Platforms</h3>
-                <div class="skills">
-                    <div class="skill">Git</div><div class="skill">GitHub</div><div class="skill">SQL Server</div><div class="skill">Visual Studio</div>
+                <div data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Who am I?</h3>
+                    <p class="text-gray-600 mb-6">I'm Ibrahim Sheta, a passionate web developer with expertise in creating modern, responsive websites and web applications. I specialize in front-end development but also have experience with full-stack solutions.</p>
+                    <p class="text-gray-600 mb-6">With a keen eye for design and a commitment to clean, efficient code, I strive to build digital experiences that are both beautiful and functional.</p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i data-feather="user" class="text-blue-600 mr-2"></i>
+                            <span class="text-gray-700">Ibrahim Sheta</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="mail" class="text-blue-600 mr-2"></i>
+                            <span class="text-gray-700">hemasheta061@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="map-pin" class="text-blue-600 mr-2"></i>
+                            <span class="text-gray-700">El-Mansoura, Egypt</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i data-feather="briefcase" class="text-blue-600 mr-2"></i>
+                            <span class="text-gray-700">Freelance</span>
+                        </div>
+                    </div>
+                    <a href="https://drive.google.com/uc?export=download&id=1OtNkN31g8i6Uz5Q8FbUzcGKgOTp5dLvr" class="inline-flex items-center text-blue-600 font-medium hover:text-blue-800">
+                        Download CV <i data-feather="download" class="ml-2"></i>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects -->
-    <section id="projects">
-        <h2 class="section-title">🏗 Projects</h2>
-        <div class="carousel-wrapper" id="carouselWrapper">
-            <button class="arrow left" aria-label="Previous project" id="prevBtn">‹</button>
-            <div class="carousel-viewport" id="viewport">
-                <div class="carousel" id="carousel">
-                    <div class="slide">
-                        <div class="card">
-                            <a href="http://mobizle.runasp.net/" target="_blank"><img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=60" alt="E-Commerce Project"></a>
-                            <h3>E-Commerce</h3><p>A Web Application for all types of goods with high speed and accuracy.</p><p><strong>Tech:</strong> .NET MVC, SQL Server, React</p>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Skills</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">I've worked with a variety of technologies in the web development world. Here are some of my core competencies.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Programming Languages -->
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-blue-50 transition skill-icon" data-aos="zoom-in">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="code" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Programming Languages</h3>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Python</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">JavaScript</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">C#</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">C++</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">HTML</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">CSS</span>
+                    </div>
+                </div>
+
+                <!-- Frameworks & Libraries -->
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-blue-50 transition skill-icon" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="layers" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Frameworks & Libraries</h3>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">.NET MVC</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">.NET API</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Entity Framework</span>
+                    </div>
+                </div>
+
+                <!-- Tools & Platforms -->
+                <div class="text-center p-6 rounded-lg bg-gray-50 hover:bg-blue-50 transition skill-icon" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <i data-feather="tool" class="text-blue-600 w-8 h-8"></i>
+                    </div>
+                    <h3 class="text-lg font-semibold mb-2">Tools & Platforms</h3>
+                    <div class="flex flex-wrap justify-center gap-2 mt-4">
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Git</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">GitHub</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">SQL Server</span>
+                        <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Visual Studio</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">My Projects</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Here are some of my recent projects. Each one was built with a specific purpose and challenge in mind.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542831371-d531d36971e6?auto=format&fit=crop&w=1400&q=60" alt="E-commerce Website" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold">E-commerce Platform</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">MVC</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A full-featured online store with product listings, cart functionality, and secure checkout.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="http://mobizle.runasp.net/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Project</a>
+                            <a href="https://github.com/HemaSheta" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="github" class="w-5 h-5"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="card">
-                            <a href="https://github.com/HemaSheta/Gym-System.git" target="_blank"><img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&h=420&w=1400" alt="Gym System"></a>
-                            <h3>Gym System</h3><p>A desktop app for managing gym memberships and activities.</p><p><strong>Tech:</strong> Windows Forms, SQL Server</p>
+                </div>
+                <!-- Project 2 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.pexels.com/photos/1552252/pexels-photo-1552252.jpeg?auto=compress&cs=tinysrgb&h=420&w=1400" alt="Gym System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold">Gym Management System</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Windows Forms</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">A productivity application for organizing tasks with drag-and-drop functionality and team collaboration.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://github.com/HemaSheta/Gym-System" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Project</a>
+                            <a href="https://github.com/HemaSheta/Gym-System" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="github" class="w-5 h-5"></i>
+                            </a>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="card">
-                            <a href="https://training-management.runasp.net/" target="_blank"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=60" alt="Training Management System"></a>
-                            <h3>Training Management System</h3><p>A Web Application for organizing training environments efficiently.</p><p><strong>Tech:</strong> .NET MVC, SQL Server, HTML, CSS, JavaScript</p>
+                </div>
+                <!-- Project 3 -->
+                <div class="bg-white rounded-lg overflow-hidden shadow-md project-card transition duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1400&q=60" alt="Training Management System" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-xl font-semibold">Training Management System</h3>
+                            <span class="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded-full">Full Stack</span>
+                        </div>
+                        <p class="text-gray-600 mb-4">An interactive learning platform with video lessons, quizzes, and progress tracking.</p>
+                        <div class="flex justify-between items-center">
+                            <a href="https://training-management.runasp.net/" target="_blank" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View Project</a>
+                            <a href="https://training-management.runasp.net/" target="_blank" class="text-gray-500 hover:text-gray-700">
+                                <i data-feather="github" class="w-5 h-5"></i>
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
-            <button class="arrow right" aria-label="Next project" id="nextBtn">›</button>
+            <div class="text-center mt-12" data-aos="fade-up">
+                <a href="#" class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                    View All Projects <i data-feather="arrow-right" class="ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-blue-600 mx-auto"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto mt-4">Have a project in mind or want to discuss potential opportunities? Feel free to reach out!</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div data-aos="fade-right">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-blue-600">
+                                    <i data-feather="mail"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-800">Email</h4>
+                                <p class="text-gray-600">hemasheta061@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-blue-600">
+                                    <i data-feather="phone"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-800">Phone</h4>
+                                <p class="text-gray-600">+201128067848</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0">
+                                <div class="flex items-center justify-center h-10 w-10 rounded-md bg-blue-100 text-blue-600">
+                                    <i data-feather="map-pin"></i>
+                                </div>
+                            </div>
+                            <div class="ml-4">
+                                <h4 class="text-lg font-medium text-gray-800">Location</h4>
+                                <p class="text-gray-600">El-Mansoura, Egypt</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-10">
+                        <h4 class="text-lg font-medium text-gray-800 mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/HemaSheta" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600">
+                                <i data-feather="github"></i>
+                            </a>
+                            <a href="http://www.linkedin.com/in/ibrahim-sheta" target="_blank" class="w-10 h-10 rounded-full bg-gray-100 flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600">
+                                <i data-feather="linkedin"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
+                            <input type="text" id="name" name="name" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                            <input type="email" id="email" name="email" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                            <input type="text" id="subject" name="subject" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
+                            <textarea id="message" name="message" rows="4" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500"></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full flex justify-center py-3 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                                Send Message <i data-feather="send" class="ml-2"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
-        <h2 style="margin:0 0 .5rem 0;">📬 Contact</h2>
-        <p style="margin:.25rem 0;">
-            <a href="mailto:hemasheta061@gmail.com" style="color:var(--accent)">hemasheta061@gmail.com</a>
-        </p>
-        <p style="margin:.4rem 0;">
-            <a href="https://github.com/HemaSheta" target="_blank"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"></a>
-            <a href="http://www.linkedin.com/in/ibrahim-sheta" target="_blank"><img src="https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/linkedin.svg" alt="LinkedIn" style="filter: invert(29%) sepia(95%) saturate(2425%) hue-rotate(195deg) brightness(92%) contrast(97%); width:34px; height:34px;"></a>
-        </p>
-
-        <!-- Contact Form -->
-        <form class="contact-form">
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea rows="5" placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col items-center">
+                <div class="mb-8">
+                    <span class="text-2xl font-bold text-blue-400">Ibrahim Sheta</span>
+                </div>
+                <div class="flex space-x-6 mb-8">
+                    <a href="https://github.com/HemaSheta" target="_blank" class="text-gray-400 hover:text-white">
+                        <i data-feather="github"></i>
+                    </a>
+                    <a href="http://www.linkedin.com/in/ibrahim-sheta" target="_blank" class="text-gray-400 hover:text-white">
+                        <i data-feather="linkedin"></i>
+                    </a>
+                </div>
+                <div class="text-center text-gray-400 text-sm">
+                    <p>© 2025 Ibrahim Sheta. All rights reserved.</p>
+                    <p class="mt-2">Designed and built with <i data-feather="heart" class="inline w-4 h-4 text-red-400"></i> by Ibrahim Sheta</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script>
-        (function () {
-            const carousel = document.getElementById('carousel');
-            const slides = Array.from(document.querySelectorAll('.slide'));
-            const prevBtn = document.getElementById('prevBtn');
-            const nextBtn = document.getElementById('nextBtn');
-            let current = 0;
-
-            function update() { carousel.style.transform = `translateX(-${current * 100}%)`; }
-            prevBtn.addEventListener('click', () => { current = (current - 1 + slides.length) % slides.length; update(); });
-            nextBtn.addEventListener('click', () => { current = (current + 1) % slides.length; update(); });
-            window.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') prevBtn.click(); if (e.key === 'ArrowRight') nextBtn.click(); });
-            update();
-        })();
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true
+        });
+        
+        feather.replace();
+        
+        // Initialize Vanta.js globe
+        VANTA.GLOBE({
+            el: "#vanta-globe",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            scale: 1.00,
+            scaleMobile: 1.00,
+            color: 0x3b82f6,
+            backgroundColor: 0x1e3a8a,
+            size: 0.8
+        });
     </script>
 </body>
 </html>
